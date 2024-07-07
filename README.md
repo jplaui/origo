@@ -30,6 +30,8 @@ The structure of the project is as follows:
 ```
 
 We quickly outline the key ideas behind the struture of the repository. For local development, developers can run the script `certs/cert.sh` to automatically generate self-signed root, server, and client certificates. The `server` folder and server-commands are only required _ORIGO_ is executed entirely locally.
+The `proxy` folder uses TLS SNI to establish TCP connections to the correct destination server by parsing the ClientHello of incoming TLS sessions. Any TLS traffic between the client and the server is forwarded/reverse tunneled. The `proxy` verifies the correctness of public TLS session parameters of the client (communication of these parameters must be added to the repo if the repo is deployed in a WAN setting! we fixed it in our [opex-repositories](https://github.com/opex-research/tls-oracle-demo)). Next, the `proxy` runs the ZKP setup proceedure and calls ZKP.Verify if the proof bytes exist.
+The `client` connects via TLS 1.3 to the server and uses the destination in SNI to help the proxy in determining the right connection. Next the client sends a request and receives a response in the TLS record phase. Afterwards the client runs the witness generation in two phases: 1. the key derivation circuit (KDC) phase and 2. the record phase. Last, the client computes the proof once setup parameters of the ZKP circuit are available.
 
 
 ## Command Line Toolkit
