@@ -1,0 +1,9 @@
+.DS_Store
+go.sum
+
+proxy/local_storage/circuits/*.ccs
+proxy/local_storage/circuits/*.pk
+proxy/local_storage/circuits/*.vk
+
+client/local_storage/circuits/*.pubwit
+client/local_storage/circuits/*.proof

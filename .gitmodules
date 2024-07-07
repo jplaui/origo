@@ -1,0 +1,24 @@
+[submodule "client/tls_fork"]
+	path = client/tls_fork
+	url = git@github.com:jplaui/tls_fork.git
+	branch = client
+[submodule "tls_mpc"]
+	path = client/tls_mpc
+	url = git@github.com:jplaui/tls_mpc.git
+	branch = main
+[submodule "client/gnark_lib"]
+	path = client/gnark_lib
+	url = git@github.com:jplaui/gnark_lib.git
+	branch = main
+
+[submodule "proxy/tls_fork"]
+	path = proxy/tls_fork
+	url = git@github.com:jplaui/tls_fork.git
+	branch = proxy
+[submodule "proxy/gnark_lib"]
+	path = proxy/gnark_lib
+	url = git@github.com:jplaui/gnark_lib.git
+	branch = main
+[submodule "client/tls_mpc"]
+	path = client/tls_mpc
+	url = git@github.com:jplaui/tls_mpc.git

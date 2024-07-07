@@ -1,0 +1,14 @@
+{
+ "chunk_index": "32",
+ "cipher_chunks": "2e960829e45e8fb13feca15becbf000b278abc59b27c454d2d6e5a25d30a7f9b",
+ "number_chunks": "2",
+ "record_index": "0",
+ "size_area_of_interest": "15",
+ "size_value": "5",
+ "substring": "\"price\"",
+ "substring_end": "20",
+ "substring_start": "13",
+ "substring_start_idx": "493",
+ "value_end": "27",
+ "value_start": "22"
+}
