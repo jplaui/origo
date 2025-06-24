@@ -40,10 +40,7 @@ The `client` connects via TLS 1.3 to the server and uses the destination in SNI 
 _ORIGO_ is a command-line toolkit which allows users to (i) generate input data for policy compliant data provenance proofs from private APIs, and (ii) prove policy-compliant proofs in zero-knowledge. The high-level workflow of the _ORIGO_ command-line toolkit is as follows:
 
 ### How to run the repository
-Make sure to follow the [installation instructions](./docs/00_installation.md) to correctly clone and setup all required packages. Details on different deployments can be found in our [tutorial](./docs/tutorials) guidelines.
-
-#### Running the protocol locally:
-Notice that you can add the `-debug` flag to see further outputs.
+Initially, you must clone the repository with the command `git clone --recurse-submodules git@github.com:jplaui/origo.git`. Next, open three terminal sessions. For each terminal session, jump into the `client`, `proxy`, and `server` folders and run `go mod tidy` to import all necessary go packages. Now you are set up to run the following commands which execute the *Origo* protocol:
 
 1. (cd server) start the server service `go run main.go`, you can optionally use the `-largeresponse` flag to exchange multiple records
 2. (cd proxy) start the proxy service `go run main.go -listen`
@@ -56,6 +53,7 @@ Notice that you can add the `-debug` flag to see further outputs.
 9. (cd proxy) run the zkp verification algorithm with the confirmed public inputs `go run main.go -debug -verify`
 10. (cd proxy) output some benchmarks `go run main.go -debug -stats`
 
+**Note:** You can add the `-debug` flag to see further outputs.
 
 ## Evaluations
 The benchmarks found in the [research paper](https://eprint.iacr.org/2024/447.pdf) have been collected with a WAN deployment of this _ORIGO_ repository. You can find the WAN deployment of this repository in our repository [tls-oracle-demo](https://github.com/opex-research/tls-oracle-demo).

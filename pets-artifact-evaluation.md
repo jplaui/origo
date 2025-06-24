@@ -31,12 +31,13 @@ We used a MacBook Pro 16-inch (2021) configured with an Apple M1 Pro chip and 32
 All tests and executions have been executed on the defined laptop.
 
 ### Software Requirements
-Our work entirely relies on publicly accessible software.
-The following itemization highlights the software stack required to execute the building blocks we provide.
+Our work entirely relies on publicly accessible software. Our code base can be executed on different machines, different operating systems, and with different dependency versions. However, the provided list shares the software stack we used to test the code base:
 - MacOS Sonoma Version 14.6.1, [installation](https://support.apple.com/en-us/105111)
 - Golang 1.21.1 darwin/arm64, [installation](https://go.dev/doc/install)
 - Git version 2.39.3, [installation](https://git-scm.com/download/mac)
 - GNU Make version 3.81, [installation](https://formulae.brew.sh/formula/make)
+
+**Note:** If your software modules deviate from the versions we mention, it remains very likely that the code base continues to work. If not, please take a look into the changelog of the software modules and adapt outdated functionalities that are used within this work.
 
 ### Estimated Time and Storage Consumption
 Running the Origo protocol (proving smaller chunks (< 64 bytes) of private data) will roughly take about 2 minutes.
@@ -62,7 +63,7 @@ In order to make sure that the software has been set up correctly, please go thr
 - (Git) run `git version` and expect version 2.39.3
 - (Golang) run `go version` and expect version go1.21.1
 - (Origo local mode) run the command `go mod tidy` in each of the folders `origo/client`, `origo/proxy`, `origo/server`.
-- (Origo ZKP circuits) run `git clone https://github.com/jplaui/circuits_janus.git`, then `cd` into the folder `circuits_janus/gnark_zkp` and run `go mod init gnark_zkp` as well as `go mod tidy`.
+- (Origo ZKP circuits) run `git clone https://github.com/jplaui/circuits_janus.git`, then `cd` into the folder `circuits_janus/gnark_zkp` and run `go mod tidy`.
 - (Origo real server mode) run `https://github.com/origo-project/tls-oracle-demo.git`.
 
 ## Artifact Evaluation (Only for Functional and Reproduced badges)
@@ -124,7 +125,7 @@ require (
 	rsc.io/tmplfunc v0.0.3 // indirect
 )
 ```
-Next, you can see possible circuits with the command `go run main.go -debug -algorithm`. Next, use a command as `go run main.go -debug -gcm -byte-size 256 -iterations 1` to evaluate the AES_GCM zkSNARK circuit and continue to change the size of bytes for the proof using the -byte-size flag. Further, you can increase the number of executions with the -iterations flag. We use aes_gcm to create the Figure 13. 
+You can see possible circuits with the command `go run main.go -debug -algorithm`. Use the command `go run main.go -debug -gcm -byte-size 256 -iterations 1` to evaluate the AES_GCM zkSNARK circuit and continue to change the size of bytes for the proof using the -byte-size flag. Further, you can increase the number of executions with the -iterations flag. We use aes_gcm to create the Figure 13.
 The command `go run main.go -debug -tls13-oracle -iterations 1` executes the entire Origo ZKP circuit (including the key derivation circuit). With the commands `go run main.go -debug -record -iterations 1` and `go run main.go -debug -authtag -iterations 1`, we create the benchmarks of Table 3. 
 This experiment takes longer if byte sizes increase. The number of iterations additionally impacts the runtime of the algorithm. As much system resources as possible are allocated for this job.
 The results supports our claims made in our main result 1.
