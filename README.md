@@ -1,5 +1,7 @@
 # ORIGO CMD Toolkit
 
+## PETS Artifact
+- The PETS artifact evaluation is linked [here](./pets-artifact-evaluation.md)
 
 #### Contents
 - [Introduction](#introduction)
