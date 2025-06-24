@@ -125,7 +125,15 @@ require (
 	rsc.io/tmplfunc v0.0.3 // indirect
 )
 ```
-You can see possible circuits with the command `go run main.go -debug -algorithm`. Use the command `go run main.go -debug -gcm -byte-size 256 -iterations 1` to evaluate the AES_GCM zkSNARK circuit and continue to change the size of bytes for the proof using the -byte-size flag. Further, you can increase the number of executions with the -iterations flag. We use aes_gcm to create the Figure 13.
+You can see possible circuits with the command `go run main.go -debug -algorithm`. Use the command `go run main.go -debug -gcm -byte-size 256 -iterations 1` to evaluate the AES_GCM zkSNARK circuit and continue to change the size of bytes for the proof using the -byte-size flag. Further, you can increase the number of executions with the -iterations flag. We used the following list of commands to create the aes_gcm benchmarks of Figure 13:
+- `go run main.go -debug -gcm -byte-size 16 -iterations 3`
+- `go run main.go -debug -gcm -byte-size 32 -iterations 3`
+- `go run main.go -debug -gcm -byte-size 64 -iterations 3`
+- `go run main.go -debug -gcm -byte-size 128 -iterations 3`
+- `go run main.go -debug -gcm -byte-size 256 -iterations 3`
+- `go run main.go -debug -gcm -byte-size 512 -iterations 3`
+- `go run main.go -debug -gcm -byte-size 1024 -iterations 3`
+
 The command `go run main.go -debug -tls13-oracle -iterations 1` executes the entire Origo ZKP circuit (including the key derivation circuit). With the commands `go run main.go -debug -record -iterations 1` and `go run main.go -debug -authtag -iterations 1`, we create the benchmarks of Table 3. 
 This experiment takes longer if byte sizes increase. The number of iterations additionally impacts the runtime of the algorithm. As much system resources as possible are allocated for this job.
 The results supports our claims made in our main result 1.
