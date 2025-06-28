@@ -21,12 +21,11 @@ Make sure to obtain data processing agreements with any external site that is qu
 If you run Origo in the provided `local` mode, then all data exchanges happen locally and nothing is shared over the Internet.
 
 ## Basic Requirements (Only for Functional and Reproduced badges)
-In order to run the provided artifacts, no special hardware is required.
+In order to run the provided artifacts, please check the hardware requirements in the next subsection.
 With regard to software requirements, we explain tooling and additional requirements below.
 The expected times to run our examples align with the benchmarks we provide in our paper.
 
 ### Hardware Requirements
-This work does not require any specific hardware to reproduce the results.
 We used a MacBook Pro 16-inch (2021) configured with an Apple M1 Pro chip and 32 GB of RAM.
 All tests and executions have been executed on the defined laptop.
 
@@ -55,7 +54,7 @@ You are required to download a Github repository to execute the code.
 
 ### Set up the environment (Only for Functional and Reproduced badges)
 We expect that the following commands are executed from a fixed location such as `/home/user/origo/`.
-To download Origo, run the following command `git clone https://github.com/jplaui/origo.git`. Next, `cd` into the folder `origo` and run the local installation git submodule commands provided [here](https://github.com/jplaui/origo/blob/main/docs/01_installation.md#locally-running-the-repo).
+To download Origo, run the following command `git clone --recurse-submodules https://github.com/jplaui/origo.git`. Next, `cd` into the folder `origo`.
 Additionally, the repositories [origo-project: tls oracle demo](https://github.com/origo-project/tls-oracle-demo) must be cloned and to for benchmarking individual ZKP circuits, the repository [circuits_janus - gnark_zkp](https://github.com/jplaui/circuits_janus/tree/main) must be cloned.
 
 ### Testing the Environment (Only for Functional and Reproduced badges)
@@ -152,5 +151,3 @@ The results supports the claims made in our second main result.
 The current limitation we have in the public [origo](https://github.com/jplaui/origo) repository is that cli commands must be called sequentially. The purpose of running commands serves for simplifying access to different modules and allows splitting up parts to put them on different machines. Further, we do not fully automate the communication of shared parameters and store them in local folders (e.g. `origo/proxy/local_storage/*`). However, our server-focused implementation of [origo](https://github.com/origo-project/tls-oracle-demo) automates communication and removes sequential calls such that the protocol runs with a single invocation of the client.
 
 ## Notes on Reusability (Only for Functional and Reproduced badges)
-Our Origo PoC implements a proxy deployment of TLS oracles including a SNI-based routing of session establishments.
-Origo has been used and applied by [pluto.xyz](https://pluto.xyz/blog/web-proof-techniques-origo-mode).
